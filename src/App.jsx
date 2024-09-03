@@ -34,7 +34,11 @@ function App() {
   }, [value, oldCurrency, currency, exchangeRates]);
 
   const handleOnChange = (e) => {
-    setValue(e.target.value);
+    if (value = '') {
+      setConvertedValue('')
+    } else {
+      setValue(e.target.value);
+    }
   };
 
   return (
