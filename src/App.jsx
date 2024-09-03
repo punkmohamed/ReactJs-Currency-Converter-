@@ -25,19 +25,19 @@ function App() {
   useEffect(() => {
     fetchExchangeRates();
   }, []);
-
   useEffect(() => {
-    if (value && oldCurrency && currency && exchangeRates[oldCurrency] && exchangeRates[currency]) {
+    if (value === '') {
+      setConvertedValue('');
+    } else if (value && oldCurrency && currency && exchangeRates[oldCurrency] && exchangeRates[currency]) {
       const converted = (value / exchangeRates[oldCurrency]) * exchangeRates[currency];
       setConvertedValue(converted.toFixed(2));
     }
   }, [value, oldCurrency, currency, exchangeRates]);
 
   const handleOnChange = (e) => {
-    if (value === '') {
-      setConvertedValue('')
-    } else {
-      setValue(e.target.value);
+    setValue(e.target.value);
+    if (e.target.value === '') {
+      setConvertedValue('');
     }
   };
 
