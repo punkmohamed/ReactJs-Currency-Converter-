@@ -34,7 +34,7 @@ function App() {
   }, [value, oldCurrency, currency, exchangeRates]);
 
   const handleOnChange = (e) => {
-    if (value = '') {
+    if (value === '') {
       setConvertedValue('')
     } else {
       setValue(e.target.value);
